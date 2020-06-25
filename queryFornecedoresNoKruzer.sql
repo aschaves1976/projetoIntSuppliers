@@ -71,7 +71,7 @@ SELECT
            WHERE 1=1
              AND hr.party_id = hcp.owner_table_id--'1892438'
              AND hcp.contact_point_type = 'EMAIL'
-           
+             AND hr.end_date >= SYSDATE          
          ) email
        , (
            SELECT 
@@ -86,7 +86,7 @@ SELECT
            WHERE 1=1
              AND hr.party_id = hcp.owner_table_id--'1892438'
              AND hcp.contact_point_type = 'PHONE'
-           
+             AND hr.end_date >= SYSDATE
          ) phone
 WHERE 1=1
   AND phone.object_id (+)            = pv.party_id
